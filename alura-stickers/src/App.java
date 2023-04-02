@@ -37,27 +37,30 @@ public class App {
             double classificacao1 = Double.parseDouble(filme.get("imDbRating"));
 
             String textoFigurinha;
-            if (classificacao1 >= 9.2) {
+            if (classificacao1 >= 9.0) {
                 textoFigurinha = "Topzera";
             } else {
                 textoFigurinha = "hmmm...";
             }
 
             InputStream inputStream = new URL(urlImagem).openStream();
-            String nomeArquivo = "figurinhas/" + titulo + ".png";
+            String nomeArquivo = "imaersãofigurinhas/" + titulo + ".png";
 
             var geradora = new GeradoraDeFigurinhas();
             geradora.cria(inputStream, nomeArquivo, textoFigurinha);
 
-            System.out.println("\u001b[1mTitulo: \u001b[1m" + filme.get("title"));
-            System.out.println("\u001b[1mPoster: \u001b[1m" + filme.get("image"));
-            System.out.println("\u001b[30m\u001b[45mClassificacao: \u001b[m");
-            double classificacao = Double.parseDouble(filme.get("imDbRating"));
-            int numeroEstrelinhas = (int) classificacao;
-            for (int n = 1; n <= numeroEstrelinhas; n++) {
-                System.out.print("⭐");
-            }
-            System.out.println("\n");
+            // System.out.println("\u001b[1mTitulo: \u001b[1m" + filme.get("title"));
+            // System.out.println("\u001b[1mPoster: \u001b[1m" + filme.get("image"));
+            // System.out.println("\u001b[30m\u001b[45mClassificacao: \u001b[m");
+            // double classificacao = Double.parseDouble(filme.get("imDbRating"));
+            // int numeroEstrelinhas = (int) classificacao;
+            // for (int n = 1; n <= numeroEstrelinhas; n++) {
+            //     System.out.print("⭐");
+            // }
+            // System.out.println("\n");
+
+            System.out.println(titulo);
+            System.out.println();
         }
     }
 }       
