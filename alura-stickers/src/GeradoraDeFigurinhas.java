@@ -10,7 +10,7 @@ import java.awt.FontMetrics;
 
 public class GeradoraDeFigurinhas {
     
-    void cria(InputStream InputStream, String nomeArquivo, String texto) throws Exception {
+    void cria(InputStream InputStream, String nomeArquivo) throws Exception {
 
         //leitura da imagem
         //InputStream InputStream = new URL("https://raw.githubusercontent.com/alura-cursos/imersao-java-2-api/main/TopMovies_2.jpg").openStream();
@@ -27,16 +27,12 @@ public class GeradoraDeFigurinhas {
         graphics.drawImage(imagemOriginal, 0, 0, null);
 
         //configurar a fonte
-        Font fonte = new Font(Font.SANS_SERIF, Font.BOLD, 64);
-        graphics.setColor(Color.yellow);
+        var fonte = new Font(Font.SANS_SERIF, Font.BOLD, 64);
+        graphics.setColor(Color.YELLOW);
         graphics.setFont(fonte);
 
         //escrever uma imagem na nova imagem
-        FontMetrics fontMetrics = graphics.getFontMetrics();
-        Rectangle2D retangulo = fontMetrics.getStringBounds(texto, graphics);
-        int larguraTexto = (int) retangulo.getWidth();
-        int posicaoTextoX = (largura - larguraTexto) / 2;
-        graphics.drawString(texto, posicaoTextoX, novaAltura - 100);
+        graphics.drawString("TOPZERA", 100, novaAltura - 100);
 
         //escrever a nova imagem em um arquivo
         ImageIO.write(novaImagem, "png", new File((nomeArquivo)));
